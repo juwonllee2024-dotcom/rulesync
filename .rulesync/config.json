@@ -1,0 +1,13 @@
+{
+  "source": "AGENTS.md",
+  "targets": [
+    "claude",
+    "cursor",
+    "copilot",
+    "cline",
+    "windsurf"
+  ],
+  "maxTokens": 2000,
+  "headerComment": true,
+  "ignoreRules": []
+}

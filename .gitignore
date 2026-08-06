@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+.npm
+
+# Output & Build
+dist/
+build/
+*.tsbuildinfo
+
+# Test Coverage
+coverage/
+.vitest/
+
+# Temp & OS Files
+.DS_Store
+Thumbs.db
+*.log
+tests/tmp_workspace/
+
+# Environment Variables
+.env
+.env.local

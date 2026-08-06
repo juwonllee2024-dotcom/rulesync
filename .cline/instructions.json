@@ -1,0 +1,6 @@
+{
+  "_generator": "RuleSync (https://github.com/rulesync/rulesync)",
+  "title": "Repository AI Rules",
+  "overview": "Canonical repository instructions for AI coding assistants (Claude Code, Cursor, Copilot, Cline, Windsurf).",
+  "customInstructions": "[Code Style & Standards] (Files: **/*.ts, **/*.tsx)\n<!-- globs: **/*.ts, **/*.tsx -->\n- Always use TypeScript strict mode with explicit return types.\n- Prefer named exports over default exports.\n- Use immutable state updates and modern ES2022+ syntax.\n\n[Testing & Quality] (Files: tests/**/*.ts, **/*.spec.ts)\n<!-- globs: tests/**/*.ts, **/*.spec.ts -->\n- Write unit tests for all business logic using Vitest or Jest.\n- Maintain high test coverage and test edge cases and error paths explicitly.\n\n[Security & Privacy Guidelines]\n- Never hardcode API keys, access tokens, or secrets in source code.\n- Always validate external input and check path resolution bounds.\n- Do not execute destructive shell commands (`rm -rf`, `chmod 777`)."
+}

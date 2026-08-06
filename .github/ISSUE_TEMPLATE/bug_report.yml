@@ -1,0 +1,40 @@
+name: 🐛 Bug Report
+description: Create a report to help us fix a bug in RuleSync
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report a bug!
+  - type: input
+    id: version
+    attributes:
+      label: RuleSync Version
+      description: What version of RuleSync are you using? (e.g. 1.0.0 or npx rulesync --version)
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the Bug
+      description: Clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce & Sample Rule File
+      description: Steps to reproduce the behavior or a sample `AGENTS.md` file.
+      placeholder: |
+        1. Run 'rulesync lint' on AGENTS.md
+        2. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen.
+    validations:
+      required: true
