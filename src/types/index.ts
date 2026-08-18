@@ -79,3 +79,37 @@ export interface LinterRule {
   description: string;
   run: (art: AbstractRuleTree, config?: RuleSyncConfig) => LintIssue[];
 }
+
+export type ReceiptFormat = 'json' | 'markdown' | 'html';
+export type ReceiptTargetStatus = 'synced' | 'missing' | 'drifted';
+
+export interface ContextReceiptSource {
+  path: string;
+  sha256: string;
+  bytes: number;
+  tokenEstimate: number;
+}
+
+export interface ReceiptTarget {
+  target: TargetAdapterName;
+  path: string;
+  status: ReceiptTargetStatus;
+  expectedSha256: string;
+  actualSha256?: string;
+  bytes: number;
+  tokenEstimate: number;
+}
+
+export interface ContextReceipt {
+  schemaVersion: 1;
+  generatedAt: string;
+  source: ContextReceiptSource;
+  contextId: string;
+  targets: ReceiptTarget[];
+  summary: {
+    synced: number;
+    missing: number;
+    drifted: number;
+    total: number;
+  };
+}
