@@ -1,12 +1,12 @@
 import { LinterRule, LintIssue } from '../../types/index.js';
 
 const SECRET_PATTERNS = [
-  { pattern: /sk-ant-api[a-zA-Z0-9_\-]{20,}/, name: 'Anthropic API key' },
-  { pattern: /sk-proj-[a-zA-Z0-9_\-]{20,}/, name: 'OpenAI Project API key' },
+  { pattern: /sk-ant-api[a-zA-Z0-9_-]{20,}/, name: 'Anthropic API key' },
+  { pattern: /sk-proj-[a-zA-Z0-9_-]{20,}/, name: 'OpenAI Project API key' },
   { pattern: /ghp_[a-zA-Z0-9]{36}/, name: 'GitHub Personal Access Token' },
   { pattern: /AKIA[0-9A-Z]{16}/, name: 'AWS Access Key ID' },
-  { pattern: /AIzaSy[a-zA-Z0-9_\-]{33}/, name: 'Google API Key' },
-  { pattern: /xox[baprs]-[a-zA-Z0-9_\-]{10,}/, name: 'Slack Token' },
+  { pattern: /AIzaSy[a-zA-Z0-9_-]{33}/, name: 'Google API Key' },
+  { pattern: /xox[baprs]-[a-zA-Z0-9_-]{10,}/, name: 'Slack Token' },
 ];
 
 export const noSecretPatterns: LinterRule = {

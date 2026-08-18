@@ -3,7 +3,13 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { handleInit } from '../src/commands/init.js';
 import { handleBuild } from '../src/commands/build.js';
-import { createContextReceipt, receiptIsSynced } from '../src/receipt/index.js';
+import {
+  createContextReceipt,
+  handleReceipt,
+  receiptIsSynced,
+  renderReceiptHtml,
+  renderReceiptMarkdown
+} from '../src/receipt/index.js';
 
 describe('Context Receipt', () => {
   const testDir = path.join(process.cwd(), 'tests', 'tmp_receipt_workspace');
@@ -48,5 +54,30 @@ describe('Context Receipt', () => {
     expect(drifted?.actualSha256).toMatch(/^[a-f0-9]{64}$/);
     expect(receipt.summary).toEqual({ synced: 3, missing: 1, drifted: 1, total: 5 });
     expect(receiptIsSynced(receipt)).toBe(false);
+  });
+
+  it('writes machine-readable receipt and escapes target paths in HTML', async () => {
+    const outputPath = path.join(testDir, '.rulesync', 'context-receipt.json');
+    const written = await handleReceipt({ format: 'json', output: outputPath, cwd: testDir });
+
+    expect(written).toBe(true);
+    const parsed = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+    expect(parsed.contextId).toMatch(/^[a-f0-9]{12}$/);
+    expect(renderReceiptMarkdown(parsed)).toContain(`Context ID: \`${parsed.contextId}\``);
+
+    parsed.targets[0].path = '<script>alert(1)</script>';
+    const html = renderReceiptHtml(parsed);
+    expect(html).toContain('&lt;script&gt;alert(1)&lt;/script&gt;');
+    expect(html).not.toContain('<script>alert(1)</script>');
+  });
+
+  it('returns false in check mode when a target drifts', async () => {
+    fs.appendFileSync(path.join(testDir, 'CLAUDE.md'), '\nchanged\n', 'utf8');
+    const outputPath = path.join(testDir, '.rulesync', 'context-receipt.md');
+
+    const result = await handleReceipt({ format: 'markdown', output: outputPath, check: true, cwd: testDir });
+
+    expect(result).toBe(false);
+    expect(fs.readFileSync(outputPath, 'utf8')).toContain('DRIFTED');
   });
 });

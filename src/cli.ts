@@ -12,6 +12,7 @@ import { handleBuild } from './commands/build.js';
 import { handleCheck } from './commands/check.js';
 import { handleWatch } from './commands/watch.js';
 import { handleDiff } from './commands/diff.js';
+import { handleReceipt } from './receipt/index.js';
 
 const program = new Command();
 
@@ -99,6 +100,22 @@ program
       await handleDiff(options);
     } catch (err: any) {
       console.error(pc.red(`❌ Diff failed: ${err.message}`));
+      process.exit(1);
+    }
+  });
+
+program
+  .command('receipt')
+  .description('Fingerprint exactly what each configured agent target should receive')
+  .option('--format <format>', 'Output format (json | markdown | html)', 'markdown')
+  .option('-o, --output <path>', 'Write receipt to an explicit workspace-relative path')
+  .option('--check', 'Exit with code 1 when a target is missing or drifted')
+  .action(async (options) => {
+    try {
+      const success = await handleReceipt(options);
+      if (!success) process.exit(1);
+    } catch (err: any) {
+      console.error(pc.red(`??Receipt failed: ${err.message}`));
       process.exit(1);
     }
   });

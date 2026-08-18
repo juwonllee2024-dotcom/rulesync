@@ -9,8 +9,9 @@ import { compileToTargets } from '../compiler/matrix.js';
 import { loadConfig } from '../config/index.js';
 import { runLinter } from '../linter/engine.js';
 import { parseMarkdownToART } from '../parser/art.js';
-import { ContextReceipt, ReceiptTarget } from '../types/index.js';
+import { ContextReceipt, ReceiptFormat, ReceiptTarget } from '../types/index.js';
 import { sanitizeWorkspacePath } from '../utils/path.js';
+import { renderReceiptHtml, renderReceiptJson, renderReceiptMarkdown } from './render.js';
 
 function sha256(value: Buffer | string): string {
   return createHash('sha256').update(value).digest('hex');
@@ -88,3 +89,41 @@ export function createContextReceipt(cwd: string = process.cwd(), generatedAt: s
 export function receiptIsSynced(receipt: ContextReceipt): boolean {
   return receipt.summary.missing === 0 && receipt.summary.drifted === 0;
 }
+
+export interface ReceiptOptions {
+  format?: ReceiptFormat;
+  output?: string;
+  check?: boolean;
+  cwd?: string;
+}
+
+export async function handleReceipt(options: ReceiptOptions = {}): Promise<boolean> {
+  const cwd = options.cwd || process.cwd();
+  const receipt = createContextReceipt(cwd);
+  const format = options.format || 'markdown';
+  const content = format === 'json'
+    ? renderReceiptJson(receipt)
+    : format === 'html'
+      ? renderReceiptHtml(receipt)
+      : format === 'markdown'
+        ? renderReceiptMarkdown(receipt)
+        : (() => { throw new Error(`Unsupported receipt format: ${format}`); })();
+
+  if (options.output) {
+    const outputPath = sanitizeWorkspacePath(options.output, cwd);
+    const parentDir = path.dirname(outputPath);
+    if (!fs.existsSync(parentDir)) fs.mkdirSync(parentDir, { recursive: true });
+    fs.writeFileSync(outputPath, content, 'utf8');
+    console.log(`Wrote ${format} context receipt: ${outputPath}`);
+  } else {
+    console.log(content);
+  }
+
+  if (options.check && !receiptIsSynced(receipt)) {
+    console.error(`Context receipt check failed: ${receipt.summary.missing} missing, ${receipt.summary.drifted} drifted target(s).`);
+    return false;
+  }
+  return true;
+}
+
+export { renderReceiptHtml, renderReceiptJson, renderReceiptMarkdown } from './render.js';

@@ -9,3 +9,4 @@ export { compileToTargets } from './compiler/matrix.js';
 export { loadConfig, saveConfig, DEFAULT_CONFIG } from './config/index.js';
 export { generateUnifiedDiff } from './utils/diff.js';
 export { sanitizeWorkspacePath, normalizeRelativePath } from './utils/path.js';
+export * from './receipt/index.js';
