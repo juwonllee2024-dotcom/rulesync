@@ -17,4 +17,11 @@ describe('Security Path Traversal Shield', () => {
       sanitizeWorkspacePath('../../etc/passwd', cwd);
     }).toThrow(/Security Exception: Path traversal attempt blocked/);
   });
+
+  it('blocks sibling paths that only share the workspace prefix', () => {
+    const cwd = '/home/user/workspace';
+    expect(() => {
+      sanitizeWorkspacePath('../workspace-evil/secret.md', cwd);
+    }).toThrow(/Security Exception: Path traversal attempt blocked/);
+  });
 });
