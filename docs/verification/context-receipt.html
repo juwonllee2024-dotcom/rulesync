@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RuleSync Context Receipt 4f1e5284fd95</title>
+  <style>
+    :root { color-scheme: light; --ink:#172033; --muted:#657089; --line:#e2e7f0; --paper:#fff; --wash:#f6f8fc; --accent:#6f55ff; --synced:#147548; --missing:#a26409; --drifted:#bd3f5b; }
+    * { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:15px/1.5 ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif; }
+    main { max-width:980px; margin:0 auto; padding:44px 20px 72px; } .hero { padding:30px; border-radius:22px; color:#fff; background:linear-gradient(135deg,#171d38,#473389); box-shadow:0 18px 46px #2c296025; }
+    .eyebrow { color:#c9c0ff; font-size:11px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; } h1 { margin:8px 0; font-size:clamp(28px,5vw,48px); letter-spacing:-.04em; } .lede { color:#dddaf0; max-width:700px; margin:0; }
+    .context-id { display:inline-block; margin-top:20px; padding:9px 12px; border:1px solid #ffffff3d; border-radius:10px; background:#ffffff14; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; }
+    .panel { background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:20px; margin-top:16px; } .summary { display:flex; flex-wrap:wrap; gap:10px; } .metric { border:1px solid var(--line); border-radius:12px; padding:12px 14px; min-width:120px; } .metric strong { display:block; font-size:22px; } .metric span { color:var(--muted); font-size:12px; }
+    .source { display:grid; gap:6px; color:var(--muted); } .source code { color:var(--ink); overflow-wrap:anywhere; } .toolbar { display:flex; gap:12px; align-items:center; margin:26px 0 12px; } input { flex:1; border:1px solid var(--line); border-radius:11px; padding:11px 13px; font:inherit; } #count { color:var(--muted); white-space:nowrap; }
+    .targets { display:grid; gap:12px; } .target { background:var(--paper); border:1px solid var(--line); border-left:5px solid var(--synced); border-radius:14px; padding:18px; } .status-missing { border-left-color:var(--missing); } .status-drifted { border-left-color:var(--drifted); } .target-head { display:flex; justify-content:space-between; gap:15px; align-items:flex-start; } .target-name { font-weight:800; } .target-path { color:var(--muted); margin-top:3px; overflow-wrap:anywhere; } .badge { border-radius:99px; padding:4px 9px; font-size:11px; font-weight:800; letter-spacing:.05em; } .status-synced .badge { color:var(--synced); background:#e6f6ee; } .status-missing .badge { color:var(--missing); background:#fff2d9; } .status-drifted .badge { color:var(--drifted); background:#fdebf0; }
+    .metrics { display:flex; gap:14px; margin:15px 0; color:var(--muted); font-size:13px; } dl { display:grid; grid-template-columns:max-content 1fr; gap:6px 12px; margin:0; font-size:12px; } dt { color:var(--muted); } dd { margin:0; overflow-wrap:anywhere; } footer { color:var(--muted); margin-top:22px; font-size:12px; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero"><div class="eyebrow">RuleSync · context receipt</div><h1>Exact agent context, made visible.</h1><p class="lede">A local fingerprint of the canonical rule source and every compiled target. Review drift before an agent follows stale instructions.</p><div class="context-id">context 4f1e5284fd95</div></section>
+    <section class="panel"><div class="summary"><div class="metric"><strong>5</strong><span>synced</span></div><div class="metric"><strong>0</strong><span>missing</span></div><div class="metric"><strong>0</strong><span>drifted</span></div><div class="metric"><strong>5</strong><span>targets</span></div></div></section>
+    <section class="panel source"><strong>Canonical source</strong><span><code>AGENTS.md</code> · 824 bytes · ~169 tokens</span><span>SHA-256 <code>78920552cda1bfb495779bc46a85e3dae491da2b1d8edd2eba5b0d81265b7387</code></span><span>Generated 2026-08-18T15:12:07.267Z</span></section>
+    <div class="toolbar"><input id="filter" type="search" placeholder="Filter targets…" aria-label="Filter targets"><span id="count">5 targets</span></div>
+    <section class="targets" id="targets"><article class="target status-synced" data-search="claude CLAUDE.md synced">
+  <div class="target-head"><div><span class="target-name">claude</span><div class="target-path">CLAUDE.md</div></div><span class="badge">SYNCED</span></div>
+  <div class="metrics"><span>1016 bytes</span><span>~214 tokens</span></div>
+  <dl><dt>Expected SHA-256</dt><dd><code>6c090f2c177e1c4ab2ed93a61edd75eb50b356a57ead6e34802327d98c7a1598</code></dd><dt>Actual SHA-256</dt><dd><code>6c090f2c177e1c4ab2ed93a61edd75eb50b356a57ead6e34802327d98c7a1598</code></dd></dl>
+</article><article class="target status-synced" data-search="cursor .cursor/rules/rulesync.mdc synced">
+  <div class="target-head"><div><span class="target-name">cursor</span><div class="target-path">.cursor/rules/rulesync.mdc</div></div><span class="badge">SYNCED</span></div>
+  <div class="metrics"><span>1064 bytes</span><span>~224 tokens</span></div>
+  <dl><dt>Expected SHA-256</dt><dd><code>40fa1b301ae7704209f507dc135555c7ea42eff918e68a114efa4b1e7230e5f4</code></dd><dt>Actual SHA-256</dt><dd><code>40fa1b301ae7704209f507dc135555c7ea42eff918e68a114efa4b1e7230e5f4</code></dd></dl>
+</article><article class="target status-synced" data-search="copilot .github/copilot-instructions.md synced">
+  <div class="target-head"><div><span class="target-name">copilot</span><div class="target-path">.github/copilot-instructions.md</div></div><span class="badge">SYNCED</span></div>
+  <div class="metrics"><span>1049 bytes</span><span>~222 tokens</span></div>
+  <dl><dt>Expected SHA-256</dt><dd><code>8c28cf042da7aeb1edcca3a6f89f22ffd9e60b7298e3ab03f2aa9caadce7c1d4</code></dd><dt>Actual SHA-256</dt><dd><code>8c28cf042da7aeb1edcca3a6f89f22ffd9e60b7298e3ab03f2aa9caadce7c1d4</code></dd></dl>
+</article><article class="target status-synced" data-search="cline .cline/instructions.json synced">
+  <div class="target-head"><div><span class="target-name">cline</span><div class="target-path">.cline/instructions.json</div></div><span class="badge">SYNCED</span></div>
+  <div class="metrics"><span>1018 bytes</span><span>~222 tokens</span></div>
+  <dl><dt>Expected SHA-256</dt><dd><code>7fcf5908a532cef9d7ce40d31d3631f327a6e6228fc0be5b79cc008a277e6341</code></dd><dt>Actual SHA-256</dt><dd><code>7fcf5908a532cef9d7ce40d31d3631f327a6e6228fc0be5b79cc008a277e6341</code></dd></dl>
+</article><article class="target status-synced" data-search="windsurf .windsurfrules synced">
+  <div class="target-head"><div><span class="target-name">windsurf</span><div class="target-path">.windsurfrules</div></div><span class="badge">SYNCED</span></div>
+  <div class="metrics"><span>992 bytes</span><span>~210 tokens</span></div>
+  <dl><dt>Expected SHA-256</dt><dd><code>b1936ffea9f002543c8143f22fcf6ff3731314037373877355d26ab9ede01fc8</code></dd><dt>Actual SHA-256</dt><dd><code>b1936ffea9f002543c8143f22fcf6ff3731314037373877355d26ab9ede01fc8</code></dd></dl>
+</article></section>
+    <footer>Hashes fingerprint expected compiled bytes. They do not prove an agent loaded files at runtime. Generated locally; no network request required.</footer>
+  </main>
+  <script>
+    const input = document.querySelector('#filter');
+    const cards = [...document.querySelectorAll('.target')];
+    const count = document.querySelector('#count');
+    input.addEventListener('input', () => { const query = input.value.toLowerCase().trim(); let visible = 0; cards.forEach((card) => { const show = !query || card.dataset.search.toLowerCase().includes(query); card.hidden = !show; if (show) visible += 1; }); count.textContent = visible + ' targets'; });
+  </script>
+</body>
+</html>
