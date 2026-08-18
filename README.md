@@ -62,6 +62,23 @@ npx rulesync lint
 npx rulesync build
 ```
 
+### See exactly what your agent receives
+
+Rule files can be synchronized and still be unclear at review time. `receipt` creates a local fingerprint for the canonical source and every compiled target:
+
+```bash
+npx rulesync receipt --format html --output .rulesync/context-receipt.html
+open .rulesync/context-receipt.html
+```
+
+The receipt shows a 12-character context ID, SHA-256 values, byte/token estimates, and `SYNCED`, `MISSING`, or `DRIFTED` status. It never prints rule contents or calls a network. Use it in CI:
+
+```bash
+npx rulesync receipt --check --format json --output .rulesync/context-receipt.json
+```
+
+Share the context ID in a pull request when someone asks, “Which instructions did the agent see?” A receipt fingerprints expected compiled bytes; it does not claim runtime loading.
+
 ---
 
 ## 🔍 Why RuleSync?
@@ -143,6 +160,12 @@ npx rulesync watch
 Previews terminal colorized diffs between compiled target outputs and disk files.
 ```bash
 npx rulesync diff [--target cursor]
+```
+
+### `rulesync receipt`
+Creates a machine-readable, Markdown, or standalone HTML fingerprint of every configured target. `--check` exits with code `1` when a target is missing or drifted.
+```bash
+npx rulesync receipt [--format json|markdown|html] [--output <path>] [--check]
 ```
 
 ---

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-18T15:12:00.192Z",
+  "source": {
+    "path": "AGENTS.md",
+    "sha256": "78920552cda1bfb495779bc46a85e3dae491da2b1d8edd2eba5b0d81265b7387",
+    "bytes": 824,
+    "tokenEstimate": 169
+  },
+  "contextId": "4f1e5284fd95",
+  "targets": [
+    {
+      "target": "claude",
+      "path": "CLAUDE.md",
+      "status": "synced",
+      "expectedSha256": "6c090f2c177e1c4ab2ed93a61edd75eb50b356a57ead6e34802327d98c7a1598",
+      "actualSha256": "6c090f2c177e1c4ab2ed93a61edd75eb50b356a57ead6e34802327d98c7a1598",
+      "bytes": 1016,
+      "tokenEstimate": 214
+    },
+    {
+      "target": "cursor",
+      "path": ".cursor/rules/rulesync.mdc",
+      "status": "synced",
+      "expectedSha256": "40fa1b301ae7704209f507dc135555c7ea42eff918e68a114efa4b1e7230e5f4",
+      "actualSha256": "40fa1b301ae7704209f507dc135555c7ea42eff918e68a114efa4b1e7230e5f4",
+      "bytes": 1064,
+      "tokenEstimate": 224
+    },
+    {
+      "target": "copilot",
+      "path": ".github/copilot-instructions.md",
+      "status": "synced",
+      "expectedSha256": "8c28cf042da7aeb1edcca3a6f89f22ffd9e60b7298e3ab03f2aa9caadce7c1d4",
+      "actualSha256": "8c28cf042da7aeb1edcca3a6f89f22ffd9e60b7298e3ab03f2aa9caadce7c1d4",
+      "bytes": 1049,
+      "tokenEstimate": 222
+    },
+    {
+      "target": "cline",
+      "path": ".cline/instructions.json",
+      "status": "synced",
+      "expectedSha256": "7fcf5908a532cef9d7ce40d31d3631f327a6e6228fc0be5b79cc008a277e6341",
+      "actualSha256": "7fcf5908a532cef9d7ce40d31d3631f327a6e6228fc0be5b79cc008a277e6341",
+      "bytes": 1018,
+      "tokenEstimate": 222
+    },
+    {
+      "target": "windsurf",
+      "path": ".windsurfrules",
+      "status": "synced",
+      "expectedSha256": "b1936ffea9f002543c8143f22fcf6ff3731314037373877355d26ab9ede01fc8",
+      "actualSha256": "b1936ffea9f002543c8143f22fcf6ff3731314037373877355d26ab9ede01fc8",
+      "bytes": 992,
+      "tokenEstimate": 210
+    }
+  ],
+  "summary": {
+    "synced": 5,
+    "missing": 0,
+    "drifted": 0,
+    "total": 5
+  }
+}

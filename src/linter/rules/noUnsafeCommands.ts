@@ -1,7 +1,7 @@
 import { LinterRule, LintIssue } from '../../types/index.js';
 
 const UNSAFE_PATTERNS = [
-  { pattern: /rm\s+-rf\s+[\/\~]/i, desc: 'destructive root/home directory deletion (rm -rf /)' },
+  { pattern: /rm\s+-rf\s+[\x2f~]/i, desc: 'destructive root/home directory deletion (rm -rf /)' },
   { pattern: /curl\s+.*\s*\|\s*bash/i, desc: 'unvetted piping from remote URL into bash (curl | bash)' },
   { pattern: /wget\s+.*\s*\|\s*sh/i, desc: 'unvetted piping from remote URL into sh (wget | sh)' },
   { pattern: /chmod\s+777/i, desc: 'overly permissive file permissions (chmod 777)' },
