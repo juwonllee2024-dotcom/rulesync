@@ -27,10 +27,20 @@ jobs:
           npm test
           npm run build
 
+      - name: Pack verified CLI tarball
+        run: |
+          mkdir -p release
+          package_version="${GITHUB_REF_NAME#v}"
+          npm pack --pack-destination release
+          tar -tzf "release/rulesync-${package_version}.tgz" >/dev/null
+          sha256sum "release/rulesync-${package_version}.tgz" > "release/rulesync-${package_version}.tgz.sha256"
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/*
+          files: |
+            dist/*
+            release/*
           draft: false
           prerelease: false
         env:

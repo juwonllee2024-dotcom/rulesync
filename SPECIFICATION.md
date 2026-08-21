@@ -1,4 +1,4 @@
-# RuleSync Product Specification & Architecture (v1.0.0)
+# RuleSync Product Specification & Architecture (v1.2.0)
 
 ## 1. Product Vision & Mission
 `RuleSync` is an open-source CLI engine, static analyzer, and cross-format compiler for AI agent context instruction rules. It acts as the "ESLint & Babel for AI Agent Rules", allowing developers and engineering teams to maintain a single canonical source of truth (`AGENTS.md` or `.rulesync/`) and automatically compile, lint, optimize, and synchronize instructions across Cursor (`.cursor/rules/`), Anthropic Claude Code (`CLAUDE.md`), GitHub Copilot (`.github/copilot-instructions.md`), Cline / RooCode (`.cline/instructions.json`), Windsurf (`.windsurfrules`), and OpenCode.
@@ -25,6 +25,7 @@
 | `rulesync check` | CI verification mode — checks if generated target files are up to date with source rules | `--quiet`, `--strict` |
 | `rulesync watch` | File-system watcher mode — auto-compiles targets whenever source rule files change | `--debounce <ms>` |
 | `rulesync diff` | Displays colorized diff preview between source rules and target compiled rule files | `--target <name>` |
+| `rulesync explain <path>` | Predicts which canonical rules apply to one workspace file and records the source line, scope, and decision reason | `--target <name>`, `--format <pretty\|json\|markdown>` |
 
 ---
 
@@ -111,7 +112,7 @@
 * **CLI UX**: Commander.js + Picocolors (Zero external bloat, sub-5ms boot time)
 * **Build System**: Tsup / Esbuild (Single bundle CLI output + ESM/CJS exports)
 * **Test Runner**: Vitest (Unit tests, compiler snapshots, linter matrix tests)
-* **Distribution**: npm (`npx rulesync`), GitHub Releases binary, Homebrew formula template.
+* **Distribution**: verified GitHub Release tarball (npm registry name collision documented), with future npm publication possible under owner-controlled credentials.
 
 ---
 
