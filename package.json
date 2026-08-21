@@ -1,6 +1,6 @@
 {
   "name": "rulesync",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "The ESLint & Babel for AI Agent Rules — Compile, lint, optimize, and sync instructions across AGENTS.md, CLAUDE.md, .cursor/rules, and Copilot.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

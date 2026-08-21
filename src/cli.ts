@@ -13,13 +13,14 @@ import { handleCheck } from './commands/check.js';
 import { handleWatch } from './commands/watch.js';
 import { handleDiff } from './commands/diff.js';
 import { handleReceipt } from './receipt/index.js';
+import { handleExplain } from './explain/index.js';
 
 const program = new Command();
 
 program
   .name('rulesync')
   .description('The ESLint & Babel for AI Agent Rules — Compile, lint, optimize, and sync instructions across AGENTS.md, CLAUDE.md, .cursor/rules, and Copilot.')
-  .version('1.0.0');
+  .version('1.2.0');
 
 program
   .command('init')
@@ -116,6 +117,22 @@ program
       if (!success) process.exit(1);
     } catch (err: any) {
       console.error(pc.red(`??Receipt failed: ${err.message}`));
+      process.exit(1);
+    }
+  });
+
+program
+  .command('explain <path>')
+  .description('Explain which canonical rules apply to one workspace file')
+  .option('-t, --target <target>', 'Target to explain (claude | cursor | copilot | cline | windsurf | agents)')
+  .option('--format <format>', 'Output format (pretty | json | markdown)', 'pretty')
+  .option('-o, --output <path>', 'Write the explanation to an explicit workspace-relative path')
+  .action(async (inputPath, options) => {
+    try {
+      const success = handleExplain(inputPath, options);
+      if (!success) process.exit(1);
+    } catch (err: any) {
+      console.error(pc.red(`??Explain failed: ${err.message}`));
       process.exit(1);
     }
   });
