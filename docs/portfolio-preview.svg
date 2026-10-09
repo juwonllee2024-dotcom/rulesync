@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">RuleSync Integration — portfolio introduction card</title>
+<desc id="desc">Designed portfolio card, not a running application screenshot. A RuleSync-related integration experiment in this account. This is not presented as an independently authored upstream project. The previously recorded rulesync/rulesync URL was unavailable during review; exact upstream lineage still needs verification.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101611"/><stop offset="1" stop-color="#242b1b"/></linearGradient></defs>
+<rect width="1600" height="900" rx="32" fill="url(#bg)"/>
+<rect x="64" y="64" width="1472" height="772" rx="24" fill="none" stroke="#d8f36b" stroke-opacity=".25"/>
+<circle cx="1400" cy="180" r="190" fill="none" stroke="#d8f36b" stroke-opacity=".12" stroke-width="30"/>
+<text x="112" y="142" fill="#d8f36b" font-family="Arial,sans-serif" font-size="26" letter-spacing="5">JUWON / THE WORK</text>
+<text x="112" y="288" fill="#f6f8ec" font-family="Arial,sans-serif" font-size="76" font-weight="700">RuleSync Integration</text>
+<rect x="112" y="334" width="140" height="5" fill="#d8f36b"/>
+<text x="112" y="410" fill="#c5cbbc" font-family="Arial,sans-serif" font-size="28">A RuleSync-related integration experiment in this account. This is not presented as</text>
+<text x="112" y="455" fill="#c5cbbc" font-family="Arial,sans-serif" font-size="28">an independently authored upstream project. The previously recorded</text>
+<text x="112" y="500" fill="#c5cbbc" font-family="Arial,sans-serif" font-size="28">rulesync/rulesync URL was unavailable during review; exact upstream lineage still</text>
+<text x="112" y="545" fill="#c5cbbc" font-family="Arial,sans-serif" font-size="28">needs verification.</text>
+<text x="112" y="730" fill="#d8f36b" font-family="Arial,sans-serif" font-size="22">PORTFOLIO INTRODUCTION CARD — NOT A RUNNING APP CAPTURE</text>
+<text x="112" y="784" fill="#9da991" font-family="Arial,sans-serif" font-size="24">jupt.pages.dev / rulesync</text>
+</svg>
